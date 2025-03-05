@@ -1,24 +1,24 @@
-import { Button, Heading, NativeBaseProvider, Stack, View } from "native-base";
+import { NativeBaseProvider, View } from "native-base";
 import React from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NativeRouter, Route, Routes, useNavigate } from "react-router-native";
-import HomePage from "./pages";
+import LoginPage from "./pages/login";
+import WelcomePage from "./pages/welcome";
 
 function App(): React.JSX.Element {
 	const navigate = useNavigate();
 
 	return (
 		<Routes>
-			<Route path="/" element={<HomePage />} />
 			<Route
-				path="/"
+				path="/login"
 				element={
-					<Stack direction={"column"} space={"3"}>
-						<Heading>Test</Heading>
-						<Button onPress={() => navigate("/test")}>Тестовая кнопка</Button>
-					</Stack>
+					<SafeAreaView>
+						<LoginPage />
+					</SafeAreaView>
 				}
 			/>
+			<Route path="/" element={<WelcomePage />} />
 		</Routes>
 	);
 }
@@ -28,11 +28,9 @@ function Root(): React.JSX.Element {
 		<SafeAreaProvider>
 			<NativeRouter>
 				<NativeBaseProvider>
-					<SafeAreaView>
-						<View mx={"4"} style={{ backgroundColor: "white" }}>
-							<App />
-						</View>
-					</SafeAreaView>
+					<View style={{ backgroundColor: "white" }}>
+						<App />
+					</View>
 				</NativeBaseProvider>
 			</NativeRouter>
 		</SafeAreaProvider>
