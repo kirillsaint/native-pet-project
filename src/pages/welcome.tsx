@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
 	Box,
 	Button,
@@ -11,9 +12,11 @@ import { useState } from "react";
 import { StyleSheet } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigate } from "react-router-native";
 
 export default function WelcomePage() {
 	const [page, setPage] = useState<1 | 2 | 3>(1);
+	const navigate = useNavigate();
 
 	const LineSelector = () => {
 		return (
@@ -196,7 +199,10 @@ export default function WelcomePage() {
 
 						<Box mx="20px">
 							<Button
-								onPress={() => setPage(3)}
+								onPress={async () => {
+									await AsyncStorage.setItem("visited_welcome_screen", "1");
+									navigate("/");
+								}}
 								bgColor={"white"}
 								h="50px"
 								borderRadius={"13px"}

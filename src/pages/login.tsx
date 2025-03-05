@@ -21,6 +21,7 @@ export default function LoginPage() {
 			paddingTop={"79px"}
 			paddingBottom={"20px"}
 			mx="20px"
+			backgroundColor={"white"}
 		>
 			<Box>
 				<Stack direction={"column"}>
