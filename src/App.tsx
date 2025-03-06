@@ -11,6 +11,7 @@ import CategoryPage from "./pages/category";
 import FavoritePage from "./pages/favorite";
 import LoginPage from "./pages/login";
 import PopularProductsPage from "./pages/popular-products";
+import RegisterPage from "./pages/register";
 import SearchPage from "./pages/search";
 import WelcomePage from "./pages/welcome";
 
@@ -39,6 +40,14 @@ function App(): React.JSX.Element {
 				element={
 					<SafeAreaView>
 						<LoginPage />
+					</SafeAreaView>
+				}
+			/>
+			<Route
+				path="/register"
+				element={
+					<SafeAreaView>
+						<RegisterPage />
 					</SafeAreaView>
 				}
 			/>
