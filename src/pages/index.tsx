@@ -1,10 +1,12 @@
 import {
 	Box,
 	Button,
+	Center,
 	Heading,
 	Icon,
 	IconButton,
 	Image,
+	Link,
 	SimpleGrid,
 	Stack,
 	Text,
@@ -155,6 +157,10 @@ export default function HomePage() {
 						w={Dimensions.get("window").width - 40}
 					/>
 				</Stack>
+
+				<Center>
+					<Link onPress={() => navigate("/login")}>Авторизоваться</Link>
+				</Center>
 			</Stack>
 		</SafeAreaView>
 	);

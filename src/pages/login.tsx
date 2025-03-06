@@ -4,26 +4,51 @@ import {
 	Center,
 	FormControl,
 	Heading,
+	IconButton,
 	Stack,
 	Text,
 } from "native-base";
-import { useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { useEffect, useState } from "react";
+import { Pressable, StyleSheet, TextInput } from "react-native";
+import { useNavigate } from "react-router-native";
+import ChevronLeftIcon from "../assets/svg/chevron-left-icon";
 
 export default function LoginPage() {
+	const [error, setError] = useState<string | null>();
+
 	const [showPassword, setShowPassword] = useState<boolean>(false);
+	const navigate = useNavigate();
+
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
+
+	useEffect(() => {
+		setError(null);
+	}, [email, password]);
 
 	return (
 		<Stack
 			direction={"column"}
 			justifyContent={"space-between"}
 			height={"full"}
-			paddingTop={"79px"}
 			paddingBottom={"20px"}
-			mx="20px"
 			backgroundColor={"white"}
 		>
-			<Box>
+			<Box mx="20px">
+				<Stack
+					alignItems={"center"}
+					direction={"row"}
+					justifyContent={"space-between"}
+				>
+					<IconButton
+						w="44px"
+						h="44px"
+						borderRadius={"40px"}
+						bgColor={"#F7F7F9"}
+						icon={<ChevronLeftIcon />}
+						onPress={() => navigate("/")}
+					/>
+				</Stack>
 				<Stack direction={"column"}>
 					<Stack
 						direction={"column"}
@@ -54,8 +79,9 @@ export default function LoginPage() {
 										Email
 									</Text>
 									<TextInput
+										value={email}
+										onChangeText={setEmail}
 										style={styles.input}
-										secureTextEntry={!showPassword}
 										placeholder="xyz@gmail.com"
 									/>
 								</Stack>
@@ -66,6 +92,8 @@ export default function LoginPage() {
 										Пароль
 									</Text>
 									<TextInput
+										value={password}
+										onChangeText={setPassword}
 										style={styles.input}
 										secureTextEntry={!showPassword}
 										placeholder="••••••••"
@@ -75,17 +103,39 @@ export default function LoginPage() {
 						</Stack>
 						<Stack direction={"row"} justifyContent={"space-between"}>
 							<Box />
-							<Text color={"#707B81"} fontSize={"12px"}>
-								Восстановить
-							</Text>
+							<Pressable onPress={() => navigate("/reset")}>
+								<Text color={"#707B81"} fontSize={"12px"}>
+									Восстановить
+								</Text>
+							</Pressable>
 						</Stack>
 					</Stack>
+
+					{error && <Text color={"red.500"}>{error}</Text>}
+
 					<Button
 						bgColor={"#48B2E7"}
 						color={"#F7F7F9"}
 						fontSize={"14px"}
 						height={"50px"}
 						borderRadius={"14px"}
+						onPress={() => {
+							if (!email.trim() || !password.trim()) {
+								setError("Заполните все поля");
+								return;
+							}
+							if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)) {
+								setError("Неправильный формат почты");
+								return;
+							}
+							if (email !== "test@gmail.com") {
+								setError(
+									"Неправильный логин или пароль. (Тестовый аккаунт: test@gmail.com, любой пароль)"
+								);
+								return;
+							}
+							navigate("/");
+						}}
 					>
 						Войти
 					</Button>
@@ -97,9 +147,11 @@ export default function LoginPage() {
 					<Text color={"#6A6A6A"} fontSize={"16px"}>
 						Вы впервые?
 					</Text>
-					<Text color={"#2B2B2B"} fontSize={"16px"}>
-						Создать пользователя
-					</Text>
+					<Pressable onPress={() => navigate("/register")}>
+						<Text color={"#2B2B2B"} fontSize={"16px"}>
+							Создать пользователя
+						</Text>
+					</Pressable>
 				</Stack>
 			</Center>
 		</Stack>
