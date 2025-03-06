@@ -39,7 +39,10 @@ function Root(): React.JSX.Element {
 		<SafeAreaProvider>
 			<NativeRouter>
 				<NativeBaseProvider>
-					<View style={{ backgroundColor: "#F7F7F9" }}>
+					<View
+						style={{ backgroundColor: "#F7F7F9", height: "100%" }}
+						color={"#2B2B2B"}
+					>
 						<App />
 					</View>
 				</NativeBaseProvider>

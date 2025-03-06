@@ -1,13 +1,27 @@
-import { Box, Heading, Icon, IconButton, Stack } from "native-base";
+import {
+	Box,
+	Button,
+	Heading,
+	Icon,
+	IconButton,
+	Image,
+	SimpleGrid,
+	Stack,
+	Text,
+} from "native-base";
 import { useEffect } from "react";
-import { Dimensions, StyleSheet, TextInput } from "react-native";
+import { Dimensions, Pressable, StyleSheet, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigate } from "react-router-native";
 import CartIcon from "../assets/svg/cart-icon";
 import FiltersIcon from "../assets/svg/filters-icon";
 import HamburgerIcon from "../assets/svg/hamburger-icon";
+import ProductItem from "../components/product-item";
 import supabase from "../utils/supabase";
 
 export default function HomePage() {
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		(async () => {
 			try {
@@ -68,6 +82,80 @@ export default function HomePage() {
 						w={"52px"}
 						h="52px"
 					></IconButton>
+				</Stack>
+
+				<Stack direction={"column"} space={"19px"}>
+					<Heading fontSize={"16px"} fontWeight={400}>
+						Категории
+					</Heading>
+					<Stack direction={"row"} space={"16px"}>
+						<Button h="40px" w="100px" bgColor={"#FFF"} borderRadius={"8px"}>
+							<Text color={"#2B2B2B"}>Все</Text>
+						</Button>
+						<Button h="40px" w="100px" bgColor={"#FFF"} borderRadius={"8px"}>
+							<Text color={"#2B2B2B"}>Outdoor</Text>
+						</Button>
+						<Button h="40px" w="100px" bgColor={"#FFF"} borderRadius={"8px"}>
+							<Text color={"#2B2B2B"}>Tennis</Text>
+						</Button>
+					</Stack>
+				</Stack>
+
+				<Stack direction={"column"} space={"30px"}>
+					<Stack
+						direction={"row"}
+						justifyContent={"space-between"}
+						alignItems={"center"}
+					>
+						<Heading fontSize={"16px"} fontWeight={400}>
+							Популярное
+						</Heading>
+						<Pressable onPress={() => navigate("/popular-products")}>
+							<Text fontSize={"12px"} color={"#48B2E7"} fontWeight={400}>
+								Все
+							</Text>
+						</Pressable>
+					</Stack>
+					<SimpleGrid columns={2} space={4}>
+						<ProductItem
+							product={{
+								id: 1,
+								isBestSeller: true,
+								image: require("../assets/images/nike-air-max.png"),
+								name: "Nike Air Max",
+								price: 752,
+							}}
+						/>
+						<ProductItem
+							product={{
+								id: 1,
+								isBestSeller: true,
+								image: require("../assets/images/nike-air-max.png"),
+								name: "Nike Air Max",
+								price: 752,
+							}}
+						/>
+					</SimpleGrid>
+				</Stack>
+				<Stack direction={"column"} space={"30px"}>
+					<Stack
+						direction={"row"}
+						justifyContent={"space-between"}
+						alignItems={"center"}
+					>
+						<Heading fontSize={"16px"} fontWeight={400}>
+							Акции
+						</Heading>
+						<Pressable>
+							<Text fontSize={"12px"} color={"#48B2E7"} fontWeight={400}>
+								Все
+							</Text>
+						</Pressable>
+					</Stack>
+					<Image
+						source={require("../assets/images/promo.png")}
+						w={Dimensions.get("window").width - 40}
+					/>
 				</Stack>
 			</Stack>
 		</SafeAreaView>
