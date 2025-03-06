@@ -5,6 +5,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NativeRouter, Route, Routes, useNavigate } from "react-router-native";
 import HomePage from "./pages";
 import CategoryPage from "./pages/category";
+import FavoritePage from "./pages/favorite";
 import LoginPage from "./pages/login";
 import PopularProductsPage from "./pages/popular-products";
 import WelcomePage from "./pages/welcome";
@@ -24,6 +25,7 @@ function App(): React.JSX.Element {
 		<Routes>
 			<Route path="/" element={<HomePage />} />
 			<Route path="/popular-products" element={<PopularProductsPage />} />
+			<Route path="/favorite-products" element={<FavoritePage />} />
 			<Route path="/category/:category" element={<CategoryPage />} />
 			<Route path="/welcome" element={<WelcomePage />} />
 			<Route

@@ -17,8 +17,8 @@ import CartIcon from "../assets/svg/cart-icon";
 import FiltersIcon from "../assets/svg/filters-icon";
 import HamburgerIcon from "../assets/svg/hamburger-icon";
 import ProductItem from "../components/product-item";
+import { categories, products } from "../data";
 import supabase from "../utils/supabase";
-import { categories } from "./category";
 
 export default function HomePage() {
 	const navigate = useNavigate();
@@ -121,24 +121,12 @@ export default function HomePage() {
 						</Pressable>
 					</Stack>
 					<SimpleGrid columns={2} space={4}>
-						<ProductItem
-							product={{
-								id: 1,
-								isBestSeller: true,
-								image: require("../assets/images/nike-air-max.png"),
-								name: "Nike Air Max",
-								price: 752,
-							}}
-						/>
-						<ProductItem
-							product={{
-								id: 1,
-								isBestSeller: true,
-								image: require("../assets/images/nike-air-max.png"),
-								name: "Nike Air Max",
-								price: 752,
-							}}
-						/>
+						{products
+							.filter((product) => product.isBestSeller)
+							.splice(0, 2)
+							.map((product) => (
+								<ProductItem product={product} key={product.id} />
+							))}
 					</SimpleGrid>
 				</Stack>
 				<Stack direction={"column"} space={"30px"}>

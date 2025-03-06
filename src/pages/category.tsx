@@ -11,20 +11,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigate, useParams } from "react-router-native";
 import ChevronLeftIcon from "../assets/svg/chevron-left-icon";
 import ProductItem from "../components/product-item";
+import { categories, products } from "../data";
 
 export interface ICategory {
 	id: string;
 	name: string;
 }
-
-export const categories: ICategory[] = [
-	{
-		id: "all",
-		name: "Все",
-	},
-	{ id: "outdoor", name: "Outdoor" },
-	{ id: "tennis", name: "Tennis" },
-];
 
 export default function CategoryPage() {
 	const navigate = useNavigate();
@@ -89,86 +81,15 @@ export default function CategoryPage() {
 					</Stack>
 				</Stack>
 				<SimpleGrid columns={2} space={4}>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
-					<ProductItem
-						product={{
-							id: 1,
-							isBestSeller: true,
-							image: require("../assets/images/nike-air-max.png"),
-							name: "Nike Air Max",
-							price: 752,
-							favorited: true,
-						}}
-					/>
+					{products
+						.filter((product) => {
+							return selectedCategory.id === "all"
+								? true
+								: product.category === selectedCategory.id;
+						})
+						.map((product) => (
+							<ProductItem product={product} key={product.id} />
+						))}
 				</SimpleGrid>
 			</Stack>
 		</SafeAreaView>
