@@ -58,7 +58,8 @@ export default function CartPage() {
 					{items.length !== 0 ? (
 						<Stack direction={"column"} space={"16px"}>
 							<Heading fontSize={"16px"} fontWeight={400} color={"#2B2B2B"}>
-								{items.length} товаров
+								{items.reduce((value, item) => (value += item.count), 0)}{" "}
+								товаров
 							</Heading>
 
 							<Stack direction={"column"} space={"14px"}>
