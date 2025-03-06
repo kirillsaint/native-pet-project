@@ -75,7 +75,11 @@ export default function HomePage() {
 				</Stack>
 
 				<Stack w="full" direction={"row"} space={"14px"}>
-					<TextInput style={styles.input} placeholder="Поиск" />
+					<TextInput
+						onPress={() => navigate("/search")}
+						style={styles.input}
+						placeholder="Поиск"
+					/>
 					<IconButton
 						borderRadius={"999px"}
 						bgColor={"#47B2E7"}
@@ -145,6 +149,7 @@ export default function HomePage() {
 						</Pressable>
 					</Stack>
 					<Image
+						borderRadius={"16px"}
 						source={require("../assets/images/promo.png")}
 						w={Dimensions.get("window").width - 40}
 					/>
