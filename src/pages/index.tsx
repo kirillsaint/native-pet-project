@@ -61,6 +61,7 @@ export default function HomePage() {
 							borderRadius={"40px"}
 							bgColor={"#FFF"}
 							icon={<CartIcon />}
+							onPress={() => navigate("/cart")}
 						/>
 						<Box
 							position={"absolute"}

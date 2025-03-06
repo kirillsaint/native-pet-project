@@ -1,9 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NativeBaseProvider, View } from "native-base";
 import React, { useEffect } from "react";
+import "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NativeRouter, Route, Routes, useNavigate } from "react-router-native";
 import HomePage from "./pages";
+import CartPage from "./pages/cart";
 import CategoryPage from "./pages/category";
 import FavoritePage from "./pages/favorite";
 import LoginPage from "./pages/login";
@@ -29,6 +32,7 @@ function App(): React.JSX.Element {
 			<Route path="/favorite-products" element={<FavoritePage />} />
 			<Route path="/category/:category" element={<CategoryPage />} />
 			<Route path="/search" element={<SearchPage />} />
+			<Route path="/cart" element={<CartPage />} />
 			<Route path="/welcome" element={<WelcomePage />} />
 			<Route
 				path="/login"
@@ -45,16 +49,18 @@ function App(): React.JSX.Element {
 function Root(): React.JSX.Element {
 	return (
 		<SafeAreaProvider>
-			<NativeRouter>
-				<NativeBaseProvider>
-					<View
-						style={{ backgroundColor: "#F7F7F9", height: "100%" }}
-						color={"#2B2B2B"}
-					>
-						<App />
-					</View>
-				</NativeBaseProvider>
-			</NativeRouter>
+			<GestureHandlerRootView>
+				<NativeRouter>
+					<NativeBaseProvider>
+						<View
+							style={{ backgroundColor: "#F7F7F9", height: "100%" }}
+							color={"#2B2B2B"}
+						>
+							<App />
+						</View>
+					</NativeBaseProvider>
+				</NativeRouter>
+			</GestureHandlerRootView>
 		</SafeAreaProvider>
 	);
 }

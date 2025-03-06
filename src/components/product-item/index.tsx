@@ -11,9 +11,12 @@ import {
 } from "native-base";
 import { useEffect, useState } from "react";
 import { Dimensions, ImageSourcePropType } from "react-native";
+import { useNavigate } from "react-router-native";
+import Cart2Icon from "../../assets/svg/cart-v2-icon";
 import HeartFilledIcon from "../../assets/svg/heart-filled-icon";
 import HeartIcon from "../../assets/svg/heart-icon";
 import PlusIcon from "../../assets/svg/plus-icon";
+import cart from "../../utils/cart";
 
 export interface IProduct {
 	id: number;
@@ -26,6 +29,8 @@ export interface IProduct {
 
 export default function ProductItem({ product }: { product: IProduct }) {
 	const [favorited, setFavorited] = useState<boolean>(false);
+	const [inCart, setInCart] = useState<boolean>(false);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		(async () => {
@@ -36,6 +41,12 @@ export default function ProductItem({ product }: { product: IProduct }) {
 				setFavorited(true);
 			} else {
 				setFavorited(false);
+			}
+
+			if ((await cart.get()).find((e) => e.product.id === product.id)) {
+				setInCart(true);
+			} else {
+				setInCart(false);
 			}
 		})();
 	}, []);
@@ -116,14 +127,29 @@ export default function ProductItem({ product }: { product: IProduct }) {
 				<Text fontStyle={"italic"} fontSize={"14px"} fontWeight={400}>
 					₽{product.price.toFixed(2)}
 				</Text>
-				<Center
-					borderTopLeftRadius={"16px"}
-					h="34px"
-					w="34px"
-					bgColor={"#48B2E7"}
+				<Pressable
+					onPress={async () => {
+						if (inCart) {
+							navigate("/cart");
+						} else {
+							await cart.add(product);
+							setInCart(true);
+						}
+					}}
 				>
-					<Icon w={"21px"} color={"white"} as={<PlusIcon />} />
-				</Center>
+					<Center
+						borderTopLeftRadius={"16px"}
+						h="34px"
+						w="34px"
+						bgColor={"#48B2E7"}
+					>
+						<Icon
+							w={"21px"}
+							color={"white"}
+							as={inCart ? <Cart2Icon /> : <PlusIcon />}
+						/>
+					</Center>
+				</Pressable>
 			</Stack>
 		</Stack>
 	);
