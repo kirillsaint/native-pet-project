@@ -1,5 +1,6 @@
 import { Center, Heading, Icon, Image, Stack, Text } from "native-base";
 import { Dimensions, ImageSourcePropType } from "react-native";
+import HeartFilledIcon from "../../assets/svg/heart-filled-icon";
 import HeartIcon from "../../assets/svg/heart-icon";
 import PlusIcon from "../../assets/svg/plus-icon";
 
@@ -9,7 +10,7 @@ export interface IProduct {
 	image: ImageSourcePropType;
 	name: string;
 	price: number;
-	followed?: boolean;
+	favorited?: boolean;
 }
 
 export default function ProductItem({ product }: { product: IProduct }) {
@@ -32,8 +33,9 @@ export default function ProductItem({ product }: { product: IProduct }) {
 				position={"absolute"}
 				bgColor={"#F7F7F9"}
 				borderRadius={"40px"}
+				color={product.favorited ? "#F87265" : undefined}
 			>
-				<HeartIcon />
+				{product.favorited ? <HeartFilledIcon /> : <HeartIcon />}
 			</Center>
 			<Stack pl="9px" pr="9px" direction={"column"} space={"12px"}>
 				<Center>
