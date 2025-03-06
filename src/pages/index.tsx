@@ -18,6 +18,7 @@ import FiltersIcon from "../assets/svg/filters-icon";
 import HamburgerIcon from "../assets/svg/hamburger-icon";
 import ProductItem from "../components/product-item";
 import supabase from "../utils/supabase";
+import { categories } from "./category";
 
 export default function HomePage() {
 	const navigate = useNavigate();
@@ -89,15 +90,18 @@ export default function HomePage() {
 						Категории
 					</Heading>
 					<Stack direction={"row"} space={"16px"}>
-						<Button h="40px" w="100px" bgColor={"#FFF"} borderRadius={"8px"}>
-							<Text color={"#2B2B2B"}>Все</Text>
-						</Button>
-						<Button h="40px" w="100px" bgColor={"#FFF"} borderRadius={"8px"}>
-							<Text color={"#2B2B2B"}>Outdoor</Text>
-						</Button>
-						<Button h="40px" w="100px" bgColor={"#FFF"} borderRadius={"8px"}>
-							<Text color={"#2B2B2B"}>Tennis</Text>
-						</Button>
+						{categories.map((category) => (
+							<Button
+								key={category.id}
+								h="40px"
+								w="100px"
+								onPress={() => navigate(`/category/${category.id}`)}
+								bgColor={"#FFF"}
+								borderRadius={"8px"}
+							>
+								<Text color={"#2B2B2B"}>{category.name}</Text>
+							</Button>
+						))}
 					</Stack>
 				</Stack>
 
