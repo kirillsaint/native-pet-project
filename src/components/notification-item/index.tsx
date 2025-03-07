@@ -16,20 +16,15 @@ export default function NotificationItem({
 			background={"#F7F7F9"}
 		>
 			<Stack direction={"column"} space={"8px"}>
-				<Heading fontSize={"16px"} fontWeight={400}>
+				<Heading fontSize={"16px"} fontWeight={700}>
 					{notification.title}
 				</Heading>
-				<Text fontSize={"12px"} fontWeight={400}>
+				<Text fontSize={"12px"} fontWeight={500}>
 					{notification.text}
 				</Text>
 			</Stack>
 
-			<Text
-				color={"#707B81"}
-				fontStyle={"italic"}
-				fontSize={"12px"}
-				fontWeight={400}
-			>
+			<Text color={"#707B81"} fontSize={"12px"} fontWeight={500}>
 				{notification.created_at}
 			</Text>
 		</Stack>

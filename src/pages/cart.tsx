@@ -47,7 +47,7 @@ export default function CartPage() {
 							color={"#2B2B2B"}
 							fontSize={"16px"}
 							textAlign={"center"}
-							fontWeight={400}
+							fontWeight={600}
 						>
 							Корзина
 						</Heading>
@@ -57,7 +57,7 @@ export default function CartPage() {
 
 					{items.length !== 0 ? (
 						<Stack direction={"column"} space={"16px"}>
-							<Heading fontSize={"16px"} fontWeight={400} color={"#2B2B2B"}>
+							<Heading fontSize={"16px"} fontWeight={500} color={"#2B2B2B"}>
 								{items.reduce((value, item) => (value += item.count), 0)}{" "}
 								товаров
 							</Heading>
@@ -95,10 +95,10 @@ export default function CartPage() {
 								direction={"row"}
 								justifyContent={"space-between"}
 							>
-								<Text color={"#707B81"} fontSize={"16px"}>
+								<Text color={"#707B81"} fontSize={"16px"} fontWeight={500}>
 									Сумма
 								</Text>
-								<Text fontSize={"16px"} fontStyle={"italic"}>
+								<Text fontSize={"16px"} fontWeight={500}>
 									₽
 									{items.reduce(
 										(value, item) => (value += item.count * item.product.price),
@@ -111,10 +111,10 @@ export default function CartPage() {
 								direction={"row"}
 								justifyContent={"space-between"}
 							>
-								<Text color={"#707B81"} fontSize={"16px"}>
+								<Text color={"#707B81"} fontSize={"16px"} fontWeight={500}>
 									Доставка
 								</Text>
-								<Text fontSize={"16px"} fontStyle={"italic"}>
+								<Text fontSize={"16px"} fontWeight={500}>
 									₽0
 								</Text>
 							</Stack>
@@ -124,10 +124,10 @@ export default function CartPage() {
 								direction={"row"}
 								justifyContent={"space-between"}
 							>
-								<Text color={"#707B81"} fontSize={"16px"}>
+								<Text color={"#707B81"} fontWeight={500} fontSize={"16px"}>
 									Итого
 								</Text>
-								<Text fontSize={"16px"} fontStyle={"italic"}>
+								<Text fontSize={"16px"} fontWeight={500} color={"#48B2E7"}>
 									₽
 									{items.reduce(
 										(value, item) => (value += item.count * item.product.price),
@@ -137,7 +137,9 @@ export default function CartPage() {
 							</Stack>
 						</Stack>
 						<Button bgColor={"#48B2E7"} borderRadius={"12px"} height={"50px"}>
-							Оформить Заказ
+							<Text fontWeight={500} color={"white"} fontSize={"14px"}>
+								Оформить Заказ
+							</Text>
 						</Button>
 					</Stack>
 				)}

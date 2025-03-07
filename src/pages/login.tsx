@@ -61,7 +61,7 @@ export default function LoginPage() {
 						textAlign={"center"}
 						alignItems={"center"}
 					>
-						<Heading color={"#2B2B2B"} fontSize={"32px"}>
+						<Heading color={"#2B2B2B"} fontSize={"32px"} fontWeight={700}>
 							Привет!
 						</Heading>
 						<Text
@@ -69,6 +69,7 @@ export default function LoginPage() {
 							fontSize={"16px"}
 							textTransform={"capitalize"}
 							textAlign={"center"}
+							fontWeight={400}
 						>
 							Заполните Свои данные или продолжите через социальные медиа
 						</Text>
@@ -80,7 +81,7 @@ export default function LoginPage() {
 						<Stack direction={"column"} space={"26px"}>
 							<FormControl>
 								<Stack space={"12px"}>
-									<Text color={"#2B2B2B"} fontSize={"16px"}>
+									<Text color={"#2B2B2B"} fontSize={"16px"} fontWeight={500}>
 										Email
 									</Text>
 									<TextInput
@@ -93,7 +94,7 @@ export default function LoginPage() {
 							</FormControl>
 							<FormControl>
 								<Stack space={"12px"}>
-									<Text color={"#2B2B2B"} fontSize={"16px"}>
+									<Text color={"#2B2B2B"} fontSize={"16px"} fontWeight={500}>
 										Пароль
 									</Text>
 									<TextInput
@@ -109,7 +110,7 @@ export default function LoginPage() {
 						<Stack direction={"row"} justifyContent={"space-between"}>
 							<Box />
 							<Pressable onPress={() => navigate("/reset")}>
-								<Text color={"#707B81"} fontSize={"12px"}>
+								<Text fontWeight={400} color={"#707B81"} fontSize={"12px"}>
 									Восстановить
 								</Text>
 							</Pressable>
@@ -123,6 +124,7 @@ export default function LoginPage() {
 						color={"#F7F7F9"}
 						fontSize={"14px"}
 						height={"50px"}
+						fontWeight={600}
 						borderRadius={"14px"}
 						onPress={async () => {
 							if (!email.trim() || !password.trim()) {
@@ -150,11 +152,11 @@ export default function LoginPage() {
 
 			<Center>
 				<Stack direction={"row"} space={"4px"} alignItems={"center"}>
-					<Text color={"#6A6A6A"} fontSize={"16px"}>
+					<Text fontWeight={500} color={"#6A6A6A"} fontSize={"16px"}>
 						Вы впервые?
 					</Text>
 					<Pressable onPress={() => navigate("/register")}>
-						<Text color={"#2B2B2B"} fontSize={"16px"}>
+						<Text fontWeight={500} color={"#2B2B2B"} fontSize={"16px"}>
 							Создать пользователя
 						</Text>
 					</Pressable>

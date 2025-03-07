@@ -76,7 +76,7 @@ export default function WelcomePage() {
 							textAlign={"center"}
 							textTransform={"uppercase"}
 							color={"white"}
-							fontWeight={400}
+							fontWeight={900}
 						>
 							Добро
 							{"\n"}
@@ -98,7 +98,7 @@ export default function WelcomePage() {
 								h="50px"
 								borderRadius={"13px"}
 							>
-								<Text color={"#2B2B2B"} fontSize={"14px"}>
+								<Text fontWeight={600} color={"#2B2B2B"} fontSize={"14px"}>
 									Начать
 								</Text>
 							</Button>
@@ -127,7 +127,7 @@ export default function WelcomePage() {
 									<Heading
 										color={"white"}
 										fontSize={"34px"}
-										fontWeight={400}
+										fontWeight={700}
 										textAlign={"center"}
 									>
 										Начнем{"\n"}путешествие
@@ -151,7 +151,7 @@ export default function WelcomePage() {
 								h="50px"
 								borderRadius={"13px"}
 							>
-								<Text color={"#2B2B2B"} fontSize={"14px"}>
+								<Text fontWeight={600} color={"#2B2B2B"} fontSize={"14px"}>
 									Далее
 								</Text>
 							</Button>
@@ -180,7 +180,7 @@ export default function WelcomePage() {
 									<Heading
 										color={"white"}
 										fontSize={"34px"}
-										fontWeight={400}
+										fontWeight={700}
 										textAlign={"center"}
 									>
 										У вас есть сила,{"\n"}чтобы
@@ -207,7 +207,7 @@ export default function WelcomePage() {
 								h="50px"
 								borderRadius={"13px"}
 							>
-								<Text color={"#2B2B2B"} fontSize={"14px"}>
+								<Text fontWeight={700} color={"#2B2B2B"} fontSize={"14px"}>
 									Далее
 								</Text>
 							</Button>

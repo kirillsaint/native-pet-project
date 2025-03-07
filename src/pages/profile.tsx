@@ -42,7 +42,7 @@ export default function ProfilePage() {
 							color={"#2B2B2B"}
 							fontSize={"16px"}
 							textAlign={"center"}
-							fontWeight={400}
+							fontWeight={600}
 						>
 							Профиль
 						</Heading>
@@ -86,7 +86,7 @@ export default function ProfilePage() {
 						w="96px"
 						h="96px"
 					/>
-					<Heading fontSize={"20px"} fontWeight={400}>
+					<Heading fontSize={"20px"} fontWeight={600}>
 						{context.props.auth.account.first_name}{" "}
 						{context.props.auth.account.last_name}
 					</Heading>
@@ -113,7 +113,7 @@ export default function ProfilePage() {
 					</Center>
 				) : (
 					<Center mt="11px">
-						<Text fontSize={"12px"} color={"#48B2E7"}>
+						<Text fontSize={"12px"} fontWeight={600} color={"#48B2E7"}>
 							Изменить фото профиля
 						</Text>
 					</Center>
@@ -122,7 +122,7 @@ export default function ProfilePage() {
 				<Stack direction={"column"} space={"17px"} mt="19px">
 					<FormControl>
 						<Stack space={"12px"}>
-							<Text color={"#2B2B2B"} fontSize={"16px"}>
+							<Text color={"#2B2B2B"} fontSize={"16px"} fontWeight={600}>
 								Имя
 							</Text>
 							<TextInput
@@ -134,7 +134,7 @@ export default function ProfilePage() {
 					</FormControl>
 					<FormControl>
 						<Stack space={"12px"}>
-							<Text color={"#2B2B2B"} fontSize={"16px"}>
+							<Text color={"#2B2B2B"} fontSize={"16px"} fontWeight={600}>
 								Фамилия
 							</Text>
 							<TextInput
@@ -146,7 +146,7 @@ export default function ProfilePage() {
 					</FormControl>
 					<FormControl>
 						<Stack space={"12px"}>
-							<Text color={"#2B2B2B"} fontSize={"16px"}>
+							<Text color={"#2B2B2B"} fontSize={"16px"} fontWeight={600}>
 								Адрес
 							</Text>
 							<TextInput
@@ -158,7 +158,7 @@ export default function ProfilePage() {
 					</FormControl>
 					<FormControl>
 						<Stack space={"12px"}>
-							<Text color={"#2B2B2B"} fontSize={"16px"}>
+							<Text color={"#2B2B2B"} fontSize={"16px"} fontWeight={600}>
 								Телефон
 							</Text>
 							<TextInput

@@ -40,7 +40,7 @@ export default function FavoritePage() {
 						color={"#2B2B2B"}
 						fontSize={"16px"}
 						textAlign={"center"}
-						fontWeight={400}
+						fontWeight={600}
 					>
 						Избранное
 					</Heading>

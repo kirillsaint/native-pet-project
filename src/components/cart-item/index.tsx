@@ -87,14 +87,14 @@ export default function CartItem({
 					<Image source={item.product.image} w="87px" h="55px" />
 				</Center>
 				<Stack direction={"column"} space={"6px"}>
-					<Heading fontSize={"16px"} fontWeight={400}>
+					<Heading fontSize={"16px"} fontWeight={500}>
 						{item.product.name}
 					</Heading>
 					<Text
 						color={"#2B2B2B"}
 						fontStyle={"italic"}
 						fontSize={"14px"}
-						fontWeight={400}
+						fontWeight={500}
 					>
 						₽{(item.product.price * item.count).toFixed(2)}
 					</Text>

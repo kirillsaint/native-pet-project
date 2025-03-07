@@ -47,7 +47,7 @@ export default function CategoryPage() {
 						color={"#2B2B2B"}
 						fontSize={"16px"}
 						textAlign={"center"}
-						fontWeight={400}
+						fontWeight={600}
 					>
 						{selectedCategory.name}
 					</Heading>

@@ -50,7 +50,7 @@ export default function HomePage() {
 						color={"#2B2B2B"}
 						fontSize={"32px"}
 						textAlign={"center"}
-						fontWeight={400}
+						fontWeight={700}
 					>
 						Главная
 					</Heading>
@@ -91,7 +91,7 @@ export default function HomePage() {
 				</Stack>
 
 				<Stack direction={"column"} space={"19px"}>
-					<Heading fontSize={"16px"} fontWeight={400}>
+					<Heading fontSize={"16px"} fontWeight={600}>
 						Категории
 					</Heading>
 					<Stack direction={"row"} space={"16px"}>
@@ -116,11 +116,11 @@ export default function HomePage() {
 						justifyContent={"space-between"}
 						alignItems={"center"}
 					>
-						<Heading fontSize={"16px"} fontWeight={400}>
+						<Heading fontSize={"16px"} fontWeight={600}>
 							Популярное
 						</Heading>
 						<Pressable onPress={() => navigate("/popular-products")}>
-							<Text fontSize={"12px"} color={"#48B2E7"} fontWeight={400}>
+							<Text fontSize={"12px"} color={"#48B2E7"} fontWeight={500}>
 								Все
 							</Text>
 						</Pressable>
@@ -140,11 +140,11 @@ export default function HomePage() {
 						justifyContent={"space-between"}
 						alignItems={"center"}
 					>
-						<Heading fontSize={"16px"} fontWeight={400}>
+						<Heading fontSize={"16px"} fontWeight={600}>
 							Акции
 						</Heading>
 						<Pressable>
-							<Text fontSize={"12px"} color={"#48B2E7"} fontWeight={400}>
+							<Text fontSize={"12px"} color={"#48B2E7"} fontWeight={500}>
 								Все
 							</Text>
 						</Pressable>

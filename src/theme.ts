@@ -35,8 +35,8 @@ const theme = extendTheme({
 				italic: "Raleway-BoldItalic",
 			},
 			900: {
-				normal: "Raleway-Bold",
-				italic: "Raleway-BoldItalic",
+				normal: "Raleway-Black",
+				italic: "Raleway-BlackItalic",
 			},
 		},
 	},

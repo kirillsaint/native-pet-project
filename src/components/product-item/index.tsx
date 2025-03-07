@@ -103,7 +103,7 @@ export default function ProductItem({ product }: { product: IProduct }) {
 					{product.isBestSeller ? (
 						<Heading
 							color={"#48B2E7"}
-							fontWeight={400}
+							fontWeight={500}
 							fontSize={"12px"}
 							textTransform={"uppercase"}
 							h={"16px"}
@@ -113,7 +113,7 @@ export default function ProductItem({ product }: { product: IProduct }) {
 					) : (
 						<Box h={"16px"}></Box>
 					)}
-					<Heading color={"#6A6A6A"} fontWeight={400} fontSize={"16px"}>
+					<Heading color={"#6A6A6A"} fontWeight={600} fontSize={"16px"}>
 						{product.name}
 					</Heading>
 				</Stack>
@@ -124,7 +124,7 @@ export default function ProductItem({ product }: { product: IProduct }) {
 				direction={"row"}
 				justifyContent={"space-between"}
 			>
-				<Text fontStyle={"italic"} fontSize={"14px"} fontWeight={400}>
+				<Text fontSize={"14px"} fontWeight={500}>
 					₽{product.price.toFixed(2)}
 				</Text>
 				<Pressable
