@@ -19,6 +19,7 @@ import ResetPage from "./pages/reset";
 import SearchPage from "./pages/search";
 import WelcomePage from "./pages/welcome";
 import AppProvider, { AppContext } from "./providers/context-provider";
+import theme from "./theme";
 
 function App(): React.JSX.Element {
 	const navigate = useNavigate();
@@ -100,7 +101,7 @@ function Root(): React.JSX.Element {
 		<SafeAreaProvider>
 			<GestureHandlerRootView>
 				<NativeRouter>
-					<NativeBaseProvider>
+					<NativeBaseProvider theme={theme}>
 						<AppProvider>
 							<View
 								style={{ backgroundColor: "#F7F7F9", height: "100%" }}
