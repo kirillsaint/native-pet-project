@@ -4,6 +4,7 @@ import {
 	Center,
 	FormControl,
 	Heading,
+	Icon,
 	IconButton,
 	Image,
 	Stack,
@@ -14,7 +15,7 @@ import { Dimensions, StyleSheet } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Navigate, useNavigate } from "react-router-native";
-import ChevronLeftIcon from "../assets/svg/chevron-left-icon";
+import HamburgerIcon from "../assets/svg/hamburger-icon";
 import PenIcon from "../assets/svg/pen-icon";
 import { AppContext } from "../providers/context-provider";
 
@@ -36,14 +37,7 @@ export default function ProfilePage() {
 						direction={"row"}
 						justifyContent={"space-between"}
 					>
-						<IconButton
-							w="44px"
-							h="44px"
-							borderRadius={"40px"}
-							bgColor={"#FFF"}
-							icon={<ChevronLeftIcon />}
-							onPress={() => navigate("/")}
-						/>
+						<Icon h="18px" as={<HamburgerIcon />} />
 						<Heading
 							color={"#2B2B2B"}
 							fontSize={"16px"}

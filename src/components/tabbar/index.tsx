@@ -50,7 +50,7 @@ export default function Tabbar() {
 				<Stack space={"41px"} alignItems={"center"} direction={"row"}>
 					<Pressable
 						onPress={() => {
-							navigate(context.props.auth ? "/profile" : "/login");
+							navigate(context.props.auth ? "/notifications" : "/login");
 						}}
 					>
 						<BellIcon

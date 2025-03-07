@@ -11,6 +11,7 @@ import CartPage from "./pages/cart";
 import CategoryPage from "./pages/category";
 import FavoritePage from "./pages/favorite";
 import LoginPage from "./pages/login";
+import NotificationsPage from "./pages/notifications";
 import PopularProductsPage from "./pages/popular-products";
 import ProfilePage from "./pages/profile";
 import RegisterPage from "./pages/register";
@@ -53,6 +54,14 @@ function App(): React.JSX.Element {
 				element={
 					<TabbarProvider bgColor="white">
 						<ProfilePage />
+					</TabbarProvider>
+				}
+			/>
+			<Route
+				path="/notifications"
+				element={
+					<TabbarProvider bgColor="white">
+						<NotificationsPage />
 					</TabbarProvider>
 				}
 			/>
