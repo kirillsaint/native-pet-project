@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
 	Box,
 	Button,
@@ -9,12 +10,16 @@ import {
 	Stack,
 	Text,
 } from "native-base";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Pressable, StyleSheet, TextInput } from "react-native";
 import { useNavigate } from "react-router-native";
 import ChevronLeftIcon from "../assets/svg/chevron-left-icon";
+import { AppContext } from "../providers/context-provider";
+import auth from "../utils/auth";
 
 export default function RegisterPage() {
+	const context = useContext(AppContext);
+
 	const [error, setError] = useState<string | null>();
 
 	const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -140,7 +145,7 @@ export default function RegisterPage() {
 						fontSize={"14px"}
 						height={"50px"}
 						borderRadius={"14px"}
-						onPress={() => {
+						onPress={async () => {
 							if (!email.trim() || !password.trim() || !name.trim()) {
 								setError("Заполните все поля");
 								return;
@@ -154,6 +159,13 @@ export default function RegisterPage() {
 								return;
 							}
 
+							const data = await auth.register(name, email, password);
+							if (data.error || !data.token) {
+								setError("Неизвестная ошибка");
+								return;
+							}
+							await AsyncStorage.setItem("access_token", data.token);
+							await context.updateProfile();
 							navigate("/");
 						}}
 					>
