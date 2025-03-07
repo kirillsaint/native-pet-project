@@ -1,5 +1,8 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface IProfile {
 	id: number;
+	image: ImageSourcePropType;
 	email: string;
 	first_name: string;
 	last_name: string;
@@ -36,6 +39,7 @@ async function profile(token: string) {
 		error: false,
 		profile: {
 			id: 1,
+			image: require("../assets/images/avatar.png"),
 			email: "test@gmail.com",
 			first_name: "Alex",
 			last_name: "Gubanov",

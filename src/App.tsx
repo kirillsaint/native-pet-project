@@ -5,12 +5,14 @@ import "react-native-gesture-handler";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NativeRouter, Route, Routes, useNavigate } from "react-router-native";
+import TabbarProvider from "./components/tabbar/provider";
 import HomePage from "./pages";
 import CartPage from "./pages/cart";
 import CategoryPage from "./pages/category";
 import FavoritePage from "./pages/favorite";
 import LoginPage from "./pages/login";
 import PopularProductsPage from "./pages/popular-products";
+import ProfilePage from "./pages/profile";
 import RegisterPage from "./pages/register";
 import ResetPage from "./pages/reset";
 import SearchPage from "./pages/search";
@@ -33,12 +35,28 @@ function App(): React.JSX.Element {
 
 	return (
 		<Routes>
-			<Route path="/" element={<HomePage />} />
+			<Route
+				path="/"
+				element={
+					<TabbarProvider>
+						<HomePage />
+					</TabbarProvider>
+				}
+			/>
 			<Route path="/popular-products" element={<PopularProductsPage />} />
 			<Route path="/favorite-products" element={<FavoritePage />} />
 			<Route path="/category/:category" element={<CategoryPage />} />
 			<Route path="/search" element={<SearchPage />} />
 			<Route path="/cart" element={<CartPage />} />
+			<Route
+				path="/profile"
+				element={
+					<TabbarProvider bgColor="white">
+						<ProfilePage />
+					</TabbarProvider>
+				}
+			/>
+
 			<Route path="/welcome" element={<WelcomePage />} />
 			<Route
 				path="/login"

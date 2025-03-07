@@ -1,18 +1,15 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
 	Box,
 	Button,
-	Center,
 	Heading,
 	Icon,
 	IconButton,
 	Image,
-	Link,
 	SimpleGrid,
 	Stack,
 	Text,
 } from "native-base";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Dimensions, Pressable, StyleSheet, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigate } from "react-router-native";
@@ -21,12 +18,10 @@ import FiltersIcon from "../assets/svg/filters-icon";
 import HamburgerIcon from "../assets/svg/hamburger-icon";
 import ProductItem from "../components/product-item";
 import { categories, products } from "../data";
-import { AppContext } from "../providers/context-provider";
 import supabase from "../utils/supabase";
 
 export default function HomePage() {
 	const navigate = useNavigate();
-	const context = useContext(AppContext);
 
 	useEffect(() => {
 		(async () => {
@@ -160,23 +155,6 @@ export default function HomePage() {
 						w={Dimensions.get("window").width - 40}
 					/>
 				</Stack>
-
-				{context.props.auth ? (
-					<Center>
-						<Link
-							onPress={async () => {
-								await AsyncStorage.removeItem("access_token");
-								context.setProps({ ...context.props, auth: null });
-							}}
-						>
-							Выйти из аккаунта
-						</Link>
-					</Center>
-				) : (
-					<Center>
-						<Link onPress={() => navigate("/login")}>Авторизоваться</Link>
-					</Center>
-				)}
 			</Stack>
 		</SafeAreaView>
 	);
